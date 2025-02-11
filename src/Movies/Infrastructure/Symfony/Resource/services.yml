@@ -1,0 +1,17 @@
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  # makes classes in src/ available to be used as services
+  # this creates a service per class whose id is the fully-qualified class name
+  Movies\:
+    resource: '../../../**'
+    exclude:
+      - '../../**/Entity/'
+      - '../Kernel.php'
+      - '../../Util/Provider/movies.php'
+
+  Movies\Infrastructure\Util\MovieSearcher\MovieSearcher:
+    factory: [ '@Movies\Infrastructure\Util\MovieSearcher\MovieSearcherFactory', 'create' ]

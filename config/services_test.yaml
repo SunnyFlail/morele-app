@@ -1,0 +1,3 @@
+services:
+  Tests\Movies\Application\Resource\TestMovieProvider:
+  Movies\Application\Provider\MovieProvider: '@Tests\Movies\Application\Resource\TestMovieProvider'
